@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_feladatok</title>
+    </head>
+<body>
+    <img id="kép" src="pictures/html.jpg" alt="html" width="500px" height="300px">
+    <button onclick="picChanging();">Képcsere</button>
+    <br>
+    <label for="a">a=</label> <input type="text" id="a"> <br>
+    <br>
+    <button onclick="squareAndVolume();">Számol</button>
+
+    <p id="eredmeny"></p>
+
+    <label for="ent">életkor=</label> <input type="text" id="agge"> <br>
+    <br>
+    <button onclick="age();">Életkori szakaszt számít</button>
+    
+    <p id="szakasz"></p>
+
+    <button onclick="printWholeNumber();">Számokat kiírat</button>
+    <p id="numbers"></p>
+
+    <label for="elsőSzam">első szám: </label> <input type="text" id="szam1"> <br>
+    <br>
+    <label for="másodikSzám">második szám: </label> <input type="text" id="szam2"> <br>
+    <br>
+
+    <button onclick="sumIntervall();">a két szám közötti számokat összead</button>
+    <p id="szamokEredmenye"></p>
+
+    <script>
+         function picChanging(){
+            document.getElementById("kép").src="pictures/javascript.jpg";
+        }
+        function squareAndVolume(){
+            var a = document.getElementById('a').value;
+            var felszin = square(a);
+            var terfogat = volume(a);
+            document.getElementById("eredmeny").innerHTML = "Területe: " + felszin + " Térfogata: " + terfogat;
+        }
+        function age(){
+            var aggge = document.getElementById("agge").value;
+            var intervall = calc(aggge);
+            document.getElementById("szakasz").innerHTML = "életkori szakasz: " + intervall;
+        }
+        function printWholeNumber(){
+            var numbers = "";
+            let numbs = [];
+            var str = "";
+            for (var index = 1; index < 21; index++){
+                if (index%2==0){
+                    var indexStr = index.toString().fontcolor("red");
+                } else{
+                    var indexStr = index.toString();  
+                }
+                numbs.push(indexStr);
+            }
+            document.getElementById("numbers").innerHTML = numbs;
+        }
+        function sumIntervall(){
+            var szam1 = document.getElementById("szam1").value;
+            var szam2 = document.getElementById("szam2").value;
+            var sum = 0;
+            //sum = parseInt(sum);
+            var index = szam1;
+            indexNum = parseInt(index);
+            indexNum++;
+            for (indexNum; indexNum < szam2; indexNum++) {
+                sum = sum+indexNum;
+            }
+    
+            document.getElementById("szamokEredmenye").innerHTML = sum;
+        }
+        
+    </script>
+    <script src="muveletek.js"></script>
+    
+</body>
+</html>
